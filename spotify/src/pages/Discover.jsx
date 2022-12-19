@@ -33,16 +33,20 @@ const Discover = () => {
         </select>
       </div>
       <div className="flex flex-wrap sm:justify-start justify-center gap-8 ">
-        {data?.map((song, i) => (
-          <SongCard
-            key={song.key}
-            song={song}
-            i={i}
-            isPlaying={isPlaying}
-            activeSong={activeSong}
-            data={data}
-          />
-        ))}
+        {data
+          ?.filter((el) => {
+            return el.images !== undefined;
+          })
+          .map((song, i) => (
+            <SongCard
+              key={song.key}
+              song={song}
+              i={i}
+              isPlaying={isPlaying}
+              activeSong={activeSong}
+              data={data}
+            />
+          ))}
       </div>
     </div>
   );
