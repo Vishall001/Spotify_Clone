@@ -28,7 +28,9 @@ const AroundYou = () => {
         Around You <span className="font-black">{country}</span>
       </h2>
       <div className="flex flex-wrap  sm:justify-start justify-center gap-8">
-        {data?.map((song, i) => (
+        {data?.filter((el) => {
+            return el.images !== undefined;
+          }).map((song, i) => (
           <SongCard
             key={song.key}
             song={song}
